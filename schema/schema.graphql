@@ -1,0 +1,45 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  # Get User by Discord ID
+  user(id: String): User
+  # Get all users
+  users: [User]
+  # Get Project by ID
+  project(id: ID): Project
+  # Get all Projects
+  projects: [Project]
+}
+
+type Mutation {
+  # Create a new Project
+  newProject(
+    # URL to hosted page
+    link: String!
+    # Projects repository URl
+    github: String!
+    # Project description
+    description: String!
+    # Used Tech / Frameworks
+    flags: String!
+    # Artwork / Screenshot base64
+    picture: String!
+    # Team ID's
+    team: [String!]!
+    # Theme ID
+    theme: Int!
+  ): Project
+  # Update raiting for a Project
+  updateRaiting(
+    # Project ID
+    projectID: ID!
+    design: Int!
+    performance: Int!
+    easeOfUse: Int!
+    responsiveness: Int!
+    motion: Int!
+  ): Raiting
+}

@@ -1,0 +1,14 @@
+type User {
+  # Discord ID
+  id: String!
+  # Name
+  name: String!
+  # Discriminator
+  discriminator: String!
+  # Discords avatar ID
+  avatar: String!
+  # Users project ID
+  projectId: Int
+  # Project
+  project: Project
+}
